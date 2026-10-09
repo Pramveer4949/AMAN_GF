@@ -11,6 +11,25 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
+   #musicButton {
+        background: linear-gradient(135deg, #ff4f9a, #ff1493);
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 22px 45px;
+        border: 3px solid white;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(255, 20, 147, 0.4);
+        margin: 25px auto;
+        display: block;
+        transition: 0.3s;
+    }
+
+    #musicButton:hover {
+        transform: scale(1.08);
+        background: linear-gradient(135deg, #ff1493, #ff69b4);
+    }
 </style>
 </head>
 <body>
@@ -25,13 +44,35 @@
         BUT ONLY THE THINGS THAT IS BEST FOR YOU <br>
         TAKE CAREE MY JAAAN I LOVEEEEEEE YOUUUUU </p></b>
     <br>
-   <h3><b><p style="color:red ; text-align:left;">PLEASE! PLEASE! PLEASE! LISTEN THE SONG FIRST</p></b></h3>
-<audio id="music" loop controls>
+   <h3><b><p style="color:red ; text-align:left;">PLEASE! PLEASE! PLEASE! CLICK ONE THE PLAY MUSIC BUTTON BELOW</p></b></h3>
+<audio id="music" loop>
     <source src="./audio/trending-on-tiktok--spotify--4k.mp3" type="audio/mpeg">
 </audio>
-<button onclick="document.getElementById('music').play()">
+<button id="musicButton" onclick="toggleMusic()">
     🎵 Play Music ❤️
 </button>
+
+<script>
+    const music = document.getElementById("music");
+    const musicButton = document.getElementById("musicButton");
+
+    function toggleMusic() {
+        if (music.paused) {
+            music.play().then(() => {
+                musicButton.innerHTML = "⏸ Pause Music ❤️";
+            }).catch(error => {
+                alert("Music could not play. Please try again!");
+            });
+        } else {
+            music.pause();
+            musicButton.innerHTML = "🎵 Play Music ❤️";
+        }
+    }
+
+    music.addEventListener("ended", () => {
+        musicButton.innerHTML = "🎵 Play Music ❤️";
+    });
+</script>
     <div>
     <img src="" >
     <img src="" >
