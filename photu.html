@@ -11,17 +11,63 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
+   #musicButton {
+        background: linear-gradient(135deg, #ff4f9a, #ff1493);
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 22px 45px;
+        border: 3px solid white;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(255, 20, 147, 0.4);
+        margin: 25px auto;
+        display: block;
+        transition: 0.3s;
+    }
+    #musicButton:hover {
+        transform: scale(1.08);
+        background: linear-gradient(135deg, #ff1493, #ff69b4);
+    }
 </style>
 </head>
 <body>
        <h1 style="color:red ; text-align:center"> MELLLIIIII PAYAAAALIII BAABUU KA PHOTUUUUU! <br>
                                 ONCEEE AGAIN HAPPYYYYYYY BIRHTDAAYYY TOOO YOUUUU!<BR>
                   I LOVEEE YOUUUUUUUUUU! </h1>
-  <img src="img/825311085_990140497447304_4704916553928724105_n.jpg">
-  <img src="img/836436958_1925013275548242_9137646779755210234_n.jpg">
-  <img src="img/836750947_2263660991190564_4015192191028552856_n.jpg">
-  <img src="img/837060684_1111035791794623_4933858312517347204_n.jpg">
-  <img src="img/837714288_2242628786310876_3098558494254304646_n.jpg">
-  <img src="img/839967388_1632709548563830_8496206300936283411_n.jpg">
+  <audio id="music" loop>
+    <source src="./audio/tu-sanwal-phul-kasturi-song--instagram-trending-song-2026.mp3" type="mpeg">
+</audio>
+<button id="musicButton" onclick="toggleMusic()">
+    🎵 Play Music ❤️
+</button>
+<script>
+    const music = document.getElementById("music");
+    const musicButton = document.getElementById("musicButton");
+
+    function toggleMusic() {
+        if (music.paused) {
+            music.play().then(() => {
+                musicButton.innerHTML = "⏸ Pause Music ❤️";
+            }).catch(error => {
+                alert("Music could not play. Please try again!");
+            });
+        } else {
+            music.pause();
+            musicButton.innerHTML = "🎵 Play Music ❤️";
+        }
+    }
+
+    music.addEventListener("ended", () => {
+        musicButton.innerHTML = "🎵 Play Music ❤️";
+    });
+</script>
+    <p style="text-align:left">
+  <img src="img/825311085_990140497447304_4704916553928724105_n.jpg"></p>
+   <p style="text-align:center"> <img src="img/836436958_1925013275548242_9137646779755210234_n.jpg"> </p>
+   <p style="text-align:right"> <img src="img/836750947_2263660991190564_4015192191028552856_n.jpg"> </p>
+   <p style="text-align:center"> <img src="img/837060684_1111035791794623_4933858312517347204_n.jpg"> </p>
+   <p style="text-align:left"> <img src="img/837714288_2242628786310876_3098558494254304646_n.jpg"> </p>
+   <p style="text-align:center"> <img src="img/839967388_1632709548563830_8496206300936283411_n.jpg"> </p>
 </body>
 </html>
